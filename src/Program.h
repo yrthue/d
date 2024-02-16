@@ -11,7 +11,7 @@ public:
   Program(int argc, char** argv);
 protected: //MENU
   void init_menus();
-  std::vector<Menu> menu;
+  std::vector<Menu> menu_ref;
   void select_menu(int menu_id);
   int menu_main();
 protected:

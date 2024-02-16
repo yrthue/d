@@ -7,9 +7,20 @@ Display::Display() {
   resize();
 }
 
+Display::~Display() {
+  endwin();
+}
+
+void Display::clear(
+  DisplayCharacter filler)
+{
+  for(int i = 0; i < character.size(); i++)
+    character[i] = filler;
+}
+
 void Display::print() {
   for(int i = 0; i < character.size(); i++)
-    printw(character[i].character.c_str());
+    character[i].print();
 }
 
 void Display::resize() {

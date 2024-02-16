@@ -21,8 +21,14 @@ public:
     this->display = display;
   }
 public:
+  void run();
+protected:
+  void update();
+  void get_input();
+public:
   std::vector<MenuEntry> entry;
   int selected_entry = 0;
-protected:
+protected: //DISPLAY
   Display * display;
+  void update_display();
 };
