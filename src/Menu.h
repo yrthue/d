@@ -24,10 +24,13 @@ public:
   void run();
 protected:
   void update();
-  void get_input();
+  int get_input();
 public:
   std::vector<MenuEntry> entry;
+protected:
   int selected_entry = 0;
+  void inc_selected_entry();
+  void dec_selected_entry();
 protected: //DISPLAY
   Display * display;
   void update_display();

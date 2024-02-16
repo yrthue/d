@@ -19,6 +19,7 @@ void Display::clear(
 }
 
 void Display::print() {
+  ::clear();
   for(int i = 0; i < character.size(); i++)
     character[i].print();
 }

@@ -15,8 +15,37 @@ void Menu::update() {
   update_display();
 }
 
-void Menu::get_input() {
-  getch();
+int Menu::get_input() {
+  int input = getch();
+  switch(input) {
+  case 10:
+    break;
+  case 27:
+    if(getch() == 91) {
+      int input0 = getch();
+      if(input0 == 65) {
+        inc_selected_entry();
+        break;
+      }
+      if(input0 == 66) {
+        dec_selected_entry();
+        break;
+      }
+    }
+  }
+  return input;
+}
+
+void Menu::inc_selected_entry() {
+  if(selected_entry == entry.size() - 1)
+    selected_entry = 0;
+  else selected_entry++;
+}
+
+void Menu::dec_selected_entry() {
+  if(selected_entry == 0)
+    selected_entry = entry.size() -1;
+  else selected_entry--;
 }
 
 void Menu::update_display() {
