@@ -23,9 +23,9 @@ public:
     this->display = display;
   }
 public:
-  void run();
+  int run();
 protected:
-  void update();
+  void update(bool * should_not_end);
   int get_input();
 public:
   std::vector<MenuEntry> entry;

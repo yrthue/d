@@ -1,18 +1,22 @@
 #include "Menu.h"
 #include <ncurses.h>
 
-void Menu::run() {
-  if(!display_is_provided) return;
+int Menu::run() {
+  if(!display_is_provided) return -2;
   bool should_not_end = true;
   update_display();
   while(should_not_end) {
     display->print();
-    update();
+    update(&should_not_end);
   }
+  return selected_entry;
 }
 
-void Menu::update() {
-  get_input();
+void Menu::update(bool * should_not_end) {
+  if(get_input() == 10) {
+    should_not_end[0] = false;
+    return;
+  }
   update_display();
 }
 
