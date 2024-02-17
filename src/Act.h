@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include <ncurses.h>
+
 class Act {
 public:
   virtual void exec(){}
@@ -37,6 +39,10 @@ protected:
 
 class ActExit : public Act {
 public:
+  virtual void  exec() {
+    printw("Good bye. Press any key");
+    getch();
+  }
   virtual std::string getClassName() {
     return "ActExit";
   }

@@ -9,7 +9,7 @@ int Menu::run() {
     display->print();
     update(&should_not_end);
   }
-  return selected_entry;
+  return entry[selected_entry].menu_id;
 }
 
 void Menu::update(bool * should_not_end) {
@@ -20,20 +20,26 @@ void Menu::update(bool * should_not_end) {
   update_display();
 }
 
+#define KEY_ENTER 10
+#define KEY_ARROWS_0 27
+#define KEY_ARROWS_1 91
+#define KEY_ARROWS_DOWN 65
+#define KEY_ARROWS_UP 66
+
 int Menu::get_input() {
   int input = getch();
   switch(input) {
-  case 10:
+  case KEY_ENTER:
     break;
-  case 27:
-    if(getch() == 91) {
+  case KEY_ARROWS_0:
+    if(getch() == KEY_ARROWS_1) {
       int input0 = getch();
-      if(input0 == 65) {
-        inc_selected_entry();
+      if(input0 == KEY_ARROWS_DOWN) {
+        dec_selected_entry();
         break;
       }
-      if(input0 == 66) {
-        dec_selected_entry();
+      if(input0 == KEY_ARROWS_UP) {
+        inc_selected_entry();
         break;
       }
     }

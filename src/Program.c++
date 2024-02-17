@@ -6,16 +6,22 @@ Program::Program(int argc, char * argv[]) {
 }
 
 void Program::init_acts() {
-  static Act act_game;
+  static Act act_game_new;
+  static Act act_game_old;
   static ActExit act_exit;
 
   Menu main_menu(&display);
   main_menu.entry.push_back(
     MenuEntry("Start anew", 0));
   main_menu.entry.push_back(
-    MenuEntry("Exit", 1));
+    MenuEntry("Load saved", 1));
+  main_menu.entry.push_back(
+    MenuEntry("Exit", 2));
 
-  static ActMenu act0(main_menu,
-    {&act_game, &act_exit});
+  static ActMenu act0(main_menu, {
+    &act_game_new,
+    &act_game_old,
+    &act_exit
+  });
   act_ref.push_back(&act0);
 }
