@@ -2,6 +2,7 @@
 #include <ncurses.h>
 
 void Menu::run() {
+  if(!display_is_provided) return;
   bool should_not_end = true;
   update_display();
   while(should_not_end) {

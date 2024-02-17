@@ -2,7 +2,16 @@
 
 Program::Program(int argc, char * argv[]) {
   init_menus();
-  select_menu(MENU_ID_MAIN);
+  init_acts();
+  //select_menu(MENU_ID_MAIN);
+  act_ref[0]->exec();
+}
+
+void Program::init_acts() {
+  static ActMenu act0(menu_ref[MENU_ID_MAIN]);
+  act_ref.push_back(&act0);
+  static ActExit act1;
+  act_ref.push_back(&act1);
 }
 
 void Program::init_menus() {

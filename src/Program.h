@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Act.h"
 #include "Display.h"
 #include "Menu.h"
 #include <vector>
@@ -9,6 +10,9 @@
 class Program {
 public:
   Program(int argc, char** argv);
+protected: //ACT
+  void init_acts();
+  std::vector<Act*> act_ref;
 protected: //MENU
   void init_menus();
   std::vector<Menu> menu_ref;

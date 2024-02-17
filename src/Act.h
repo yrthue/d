@@ -1,24 +1,35 @@
 #pragma once
 
+#include "Menu.h"
 #include <string>
 
 class Act {
 public:
-  std::string getClassName() {
+  virtual void exec(){}
+  virtual std::string getClassName() {
     return "Act";
   }
 };
 
 class ActMenu : public Act {
 public:
-  std::string getClassName() {
+  ActMenu(Menu given_menu) {
+    menu = given_menu;
+  }
+public:
+  virtual void exec() {
+    menu.run();
+  }
+  virtual std::string getClassName() {
     return "ActMenu";
   }
+protected:
+  Menu menu;
 };
 
 class ActExit : public Act {
 public:
-  std::string getClassName() {
+  virtual std::string getClassName() {
     return "ActExit";
   }
 };

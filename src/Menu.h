@@ -17,7 +17,9 @@ public:
 
 class Menu {
 public:
+  Menu(){}
   Menu(Display * display) {
+    display_is_provided = true;
     this->display = display;
   }
 public:
@@ -32,6 +34,7 @@ protected:
   void inc_selected_entry();
   void dec_selected_entry();
 protected: //DISPLAY
+  bool display_is_provided = false;
   Display * display;
   void update_display();
 };
