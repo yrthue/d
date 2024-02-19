@@ -13,5 +13,5 @@ protected: //ACT
   void init_acts();
   std::vector<Act*> act_ref;
 protected:
-  Display display;
+  Display display = Display(true);
 };
