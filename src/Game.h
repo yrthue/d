@@ -2,12 +2,15 @@
 
 #include <string>
 #include <vector>
-#include <World.h>
+#include "World.h"
 
 class Game {
 public:
   Game();
   Game(std::string save_file_path);
+public:
+  void init_menus();
+  void run();
 protected:
   int chunk_size = 32;
   int size_x_chunks = 8;

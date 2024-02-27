@@ -14,6 +14,12 @@ public:
   }
   int getSizeX() {return size_x;}
   int getSizeY() {return size_y;}
+  void setSize(int given_size_x,
+    int given_size_y)
+  {
+    size_x = given_size_x;
+    size_y = given_size_y;
+  }
   void insert(Display insertand,
     int shift_x, int shift_y);
   void print();

@@ -9,9 +9,6 @@
 class Act {
 public:
   virtual void exec(){}
-  virtual std::string getClassName() {
-    return "Act";
-  }
 public:
   std::vector<Act*> act;
 };
@@ -30,9 +27,6 @@ public:
     if(menu_code < 0 ) return;
     act[menu_code]->exec();
   }
-  virtual std::string getClassName() {
-    return "ActMenu";
-  }
 protected:
   Menu menu;
 };
@@ -42,8 +36,5 @@ public:
   virtual void  exec() {
     printw("Good bye. Press any key");
     getch();
-  }
-  virtual std::string getClassName() {
-    return "ActExit";
   }
 };

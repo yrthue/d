@@ -8,9 +8,9 @@
 #define TILE_TERRAIN_MOUNTAIN 2
 #define TILE_TERRAIN_MOUNTAIN_CHAR ""
 #define TILE_TERRAIN_SEA 3
-#define TILE_TERRAIN_SEA ""
+#define TILE_TERRAIN_SEA_CHAR ""
 
-class Tile() {
+class Tile {
 public:
   Tile() {}
 protected:

@@ -6,5 +6,11 @@ Game::Game() {
 
 void Game::init_world() {
   world.push_back(World(chunk_size,
-    size_x_chunk, size_y_chunk));
+    size_x_chunks, size_y_chunks));
+}
+
+void Game::init_menus() {
+}
+
+void Game::run() {
 }
