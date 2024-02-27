@@ -10,4 +10,6 @@ public:
   World(int chunk_size,
     int size_x_chunks, int size_y_chunks,
     std::vector<MapChunk> chunk);
+protected:
+  std::vector<MapChunk> map_chunk;
 };
