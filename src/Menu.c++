@@ -20,7 +20,7 @@ void Menu::update(bool * should_not_end) {
   update_display();
 }
 
-#define KEY_ENTER 10
+#define KEY_ENTER_ 10
 #define KEY_ARROWS_0 27
 #define KEY_ARROWS_1 91
 #define KEY_ARROWS_DOWN 65
@@ -29,7 +29,7 @@ void Menu::update(bool * should_not_end) {
 int Menu::get_input() {
   int input = getch();
   switch(input) {
-  case KEY_ENTER:
+  case KEY_ENTER_:
     break;
   case KEY_ARROWS_0:
     if(getch() == KEY_ARROWS_1) {

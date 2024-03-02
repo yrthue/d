@@ -1,33 +1,22 @@
 #pragma once
 
-#define MCI_NOT_GENERATED 1
-#define MCI_NOT_LOADED 2
-#define MCI_LOADED 3
+#include "Coordinates.h"
 
 class MapChunkInfo {
 public:
-  MapChunkInfo(int given_status) {
-    status = given_status;
+  MapChunkInfo() {
   }
 public:
-  bool isGenerated() {
-    switch() {
-    case MCI_NOT_LOADED:
-      return true;
-    case MCI_LOADED:
-      return true;
-    default:
-      return false;
-    }
+  CCoo getCoo() {return coo;}
+  bool chIsLoaded() {return chunk_is_loaded;}
+  int getChN() {return chunk_number;}
+  void setChN(int number) {
+    chunk_is_loaded = true;
+    chunk_number = number;
   }
-  bool isLoaded() {
-    switch() {
-    case MCI_LOADED:
-      return true;
-    default:
-      return false;
-    }
-  }
+  void rmCh() {chunk_is_loaded = false;}
 protected:
-  status;
+  CCoo coo;
+  bool chunk_is_loaded = false;
+  int chunk_number;
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Coordinates.h"
+#include "Display.h"
 #include "MapChunk.h"
 #include "MapChunkInfo.h"
 #include <string>
@@ -9,20 +10,31 @@
 class Map {
 public:
   Map(int size_x_chunk, int size_y_chunk) {
-    /*
-    for(int ix = 0; ix < size_x_chunk; ix++) {
-      std::vector<MapChunkInfo> col;
-      for(int iy = 0; iy < size_y_chunk; iy++) {
-        col.push_back(init_chunk(CCoo(ix, iy)));
-      }
-    }
-    */
-    for(int i = 0;
-      i < size_x_chunk * size_y_chunk; i++)
-    {
-    }
+    this->size_x_chunk = size_x_chunk;
+    this->size_y_chunk = size_y_chunk;
+    for(int iy = 0; iy < size_y_chunk; iy++)
+      for(int ix = 0; ix < size_x_chunk; ix++)
+        chunk_info.push_back(
+          MapChunkInfo(CCoo(ix, iy)));
   }
 public:
+  Display getDisplay(int size_x, int size_y,
+    GCoo get_from)
+  {
+    Display result(false);
+    result.setSize(size_x, size_y);
+    for(int iy = 0; iy < size_y; iy++) {
+      for(int ix = 0; ix < size_x; ix++) {
+        
+      }
+    }
+  }
+  bool tileExists(GCoo coo) {
+    bool result = true;
+    if(coo.x < 0) result = false;
+    if(coo.y < 0) result = false;
+    if(coo.x >= 
+  }
   Tile* getTile(GCoo coo) {
     Chunk* c = getChunk(coo);
     return c->getTile(coo);
@@ -45,5 +57,6 @@ protected:
   std::string path = "world/map";
   std::vector<MapChunkInfo> chunk_info;
   std::vector<MapChunk> chunk;
+  int size_x_chunk, size_y_chunk;
 };
 

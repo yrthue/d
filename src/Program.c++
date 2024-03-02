@@ -1,3 +1,4 @@
+#include "ActGame.h"
 #include "Program.h"
 
 Program::Program(int argc, char * argv[]) {
@@ -6,8 +7,8 @@ Program::Program(int argc, char * argv[]) {
 }
 
 void Program::init_acts() {
-  static Act act_game_new;
-  static Act act_game_old;
+  static ActGame act_game_new(true, "save");
+  static ActGame act_game_old(false, "save");
   static ActExit act_exit;
 
   Menu main_menu(&display);

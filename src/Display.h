@@ -19,6 +19,7 @@ public:
   {
     size_x = given_size_x;
     size_y = given_size_y;
+    resize();
   }
   void insert(Display insertand,
     int shift_x, int shift_y);
